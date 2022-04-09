@@ -18,12 +18,12 @@ public class SearchUtils {
         String multiCondition="";
         Integer index=0;
         for(String i : fields){
-            multiCondition=multiCondition+" "+i+" like '"+search.get(index)+"' and ";
+            multiCondition=multiCondition+" "+i+" LIKE '%"+search.get(index)+"%' AND ";
             index++;
         }
         multiCondition=multiCondition.substring(0,multiCondition.length()-5);
-        String sql="Select * from "+table+"  where "
-                +multiCondition+";";
+        String sql="SELECT * FROM "+table+"  WHERE "
+                +multiCondition+" ORDER BY "+fields.get(0)+";";
         System.out.println(sql);
         return sql;
 
@@ -32,12 +32,12 @@ public class SearchUtils {
         String multiCondition="";
         Integer index=0;
         for(String i : fields){
-            multiCondition=multiCondition+" "+i+" like '"+search.get(index)+"' or ";
+            multiCondition=multiCondition+" "+i+" LIKE '%"+search.get(index)+"%' OR ";
             index++;
         }
         multiCondition=multiCondition.substring(0,multiCondition.length()-4);
-        String sql="Select * from "+table+"  where "
-                +multiCondition+";";
+        String sql="SELECT * FROM "+table+"  WHERE "
+                +multiCondition+" ORDER BY "+fields.get(0)+";";
         System.out.println(sql);
         return sql;
 

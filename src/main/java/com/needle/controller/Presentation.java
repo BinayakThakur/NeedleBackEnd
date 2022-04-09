@@ -27,13 +27,16 @@ public class Presentation {
     Algo have two functions
     searchMultiFieldQuery which takes, table name, n field items ,n search items
     searchMultiFieldQueryOr which takes, table name, n field items ,n search items
+    Sort is implemented using first field element
     */
 
     @PostMapping("/search_and")
     public @ResponseBody List searchDataAnd(@RequestBody SearchMapper map){
 
         List data= em.createNativeQuery
-                (searchUtils.searchMultiFieldQuery(map.getTable(), map.getFields(),map.getSearch())).getResultList();
+                (searchUtils.searchMultiFieldQuery(map.getTable(), map.getFields(),map.getSearch()))
+                .getResultList();
+
         return data;
     }
     @PostMapping("/search_or")
