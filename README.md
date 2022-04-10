@@ -1,7 +1,8 @@
 # NeedleBackEnd
 # Description
 
-The work is implemented as follows the code base is connected to the DB needle, inside which I have imported the database and code have to post endpoints to get the data
+The work is implemented as follows the code base is connected to the DB needle, 
+post endpoints to get the data are following
 # Endpoints
 1)/search_or \
 2)/search_and
